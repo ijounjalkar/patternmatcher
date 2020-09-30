@@ -12,10 +12,24 @@ public class PatternMatcher {
 		System.out.println(lastname+"------->"+patternMatcher.validateInput(lastname));
 		String email = "abc.xyz@capg.co.in";
 		System.out.println(email+"------->"+patternMatcher.validateInput(email));
-		String Number = "91 1548846122";
-		System.out.println("EmailId of User:"+Number+"------->"+patternMatcher.validateMobileNum(Number));
+		String number = "91 1548846122";
+		System.out.println("EmailId of User:"+number+"------->"+patternMatcher.validateMobileNum(number));
+		String password = "Dklnd@_44";
+		System.out.println("Password of User:"+password+"------->"+patternMatcher.validatePassword(password));
 	
 	}
+
+	private String validatePassword(String password) {
+		String regex = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!_%*#?&])[A-Za-z\\d@$!_%*#?&]{8,}$";
+  	  Pattern pattern = Pattern.compile(regex);
+  	  Matcher matcher = pattern.matcher(password);
+  	  if(matcher.find()) {
+  		  return "valid";
+  		  
+  	  }
+  	  return "invalid";
+		
+	} 
 
 	private String validateMobileNum(String number) {
 		String regex = "^([0-9]{1,5}[ ][0-9]{1,10})$";
