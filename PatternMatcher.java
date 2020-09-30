@@ -7,11 +7,11 @@ public class PatternMatcher {
 	public static void main(String[] args) {
 		PatternMatcher patternMatcher = new PatternMatcher();
 		String firstname = "Isha";
-		System.out.println(firstname+"------->"+patternMatcher.validateInput(firstname));
+		System.out.println(firstname+"------->"+patternMatcher.validateFirstname(firstname));
 		String lastname = "Jounjalkar";
-		System.out.println(lastname+"------->"+patternMatcher.validateInput(lastname));
-		String email = "abc.xyz@capg.co.in";
-		System.out.println(email+"------->"+patternMatcher.validateInput(email));
+		System.out.println(lastname+"------->"+patternMatcher.validateLastname(lastname));
+		String email = "abc@capg.com";
+		System.out.println(email+"------->"+patternMatcher.validateEmail(email));
 		String number = "91 1548846122";
 		System.out.println("EmailId of User:"+number+"------->"+patternMatcher.validateMobileNum(number));
 		String password = "Dklnd@_44";
@@ -20,7 +20,7 @@ public class PatternMatcher {
 	}
 
 	private String validatePassword(String password) {
-		String regex = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!_%*#?&])[A-Za-z\\d@$!_%*#?&]{8,}$";
+		String regex = "^([A-Za-z]{1})(?=.*\\d)(?=.*[@$!_%*#?&])[A-Za-z\\d@$!_%*#?&]{8,}$";
   	  Pattern pattern = Pattern.compile(regex);
   	  Matcher matcher = pattern.matcher(password);
   	  if(matcher.find()) {
@@ -42,9 +42,8 @@ public class PatternMatcher {
   	  return "invalid";
 		
 	}
-
-	private String validateInput(String firstname) {
-		String regex = "^[A-Z a-z]{3,25}$";
+	private String validateFirstname(String firstname) {
+		String regex = "(^[A-Z]{1})[a-z]{2,}$";
   	  Pattern pattern = Pattern.compile(regex);
   	  Matcher matcher = pattern.matcher(firstname);
   	  if(matcher.find()) {
@@ -53,8 +52,19 @@ public class PatternMatcher {
   	  }
   	  return "invalid";
     }
+
+	private String validateLastname(String lastname) {
+		String regex = "(^[A-Z]{1})[a-z]{2,}$";
+  	  Pattern pattern = Pattern.compile(regex);
+  	  Matcher matcher = pattern.matcher(lastname);
+  	  if(matcher.find()) {
+  		  return "valid";
+  		  
+  	  }
+  	  return "invalid";
+    }
 	private String validateEmail(String email) {
-  	  String regex = "^(abc[.][A-Za-z]+@bl[.]co[.][A-Za-z]{3,25})$";
+  	  String regex = "^(abc?[.][A-Za-z]*@bl[.]co[.][A-Za-z]{2,})$";
   	  Pattern pattern = Pattern.compile(regex);
   	  Matcher matcher = pattern.matcher(email);
   	  if(matcher.find()) {
