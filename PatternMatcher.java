@@ -14,7 +14,7 @@ public class PatternMatcher {
 		System.out.println(email+"------->"+patternMatcher.validateEmail(email));
 		String number = "91 1548846122";
 		System.out.println("EmailId of User:"+number+"------->"+patternMatcher.validateMobileNum(number));
-		String password = "Dklnd@_";
+		String password = "Dklnd@_44";
 		System.out.println("Password of User:"+password+"------->"+patternMatcher.validatePassword(password));
 	
 	}
