@@ -10,17 +10,17 @@ public class PatternMatcher {
 		System.out.println(firstname+"------->"+patternMatcher.validateFirstname(firstname));
 		String lastname = "Jounjalkar";
 		System.out.println(lastname+"------->"+patternMatcher.validateLastname(lastname));
-		String email = "abc@capg.com";
+		String email = "abc.LYX@bl.co.com";
 		System.out.println(email+"------->"+patternMatcher.validateEmail(email));
 		String number = "91 1548846122";
 		System.out.println("EmailId of User:"+number+"------->"+patternMatcher.validateMobileNum(number));
-		String password = "Dklnd@_44";
+		String password = "Dklnd@_";
 		System.out.println("Password of User:"+password+"------->"+patternMatcher.validatePassword(password));
 	
 	}
 
 	private String validatePassword(String password) {
-		String regex = "^([A-Za-z]{1})(?=.*\\d)(?=.*[@$!_%*#?&])[A-Za-z\\d@$!_%*#?&]{8,}$";
+		String regex = "^([A-Za-z]{1})(?=.*[0-9])(?=.*\\d)(?=.*[@$!_%*#?&])[A-Za-z\\d@$!_%*#?&]{8,}$";
   	  Pattern pattern = Pattern.compile(regex);
   	  Matcher matcher = pattern.matcher(password);
   	  if(matcher.find()) {
@@ -32,7 +32,7 @@ public class PatternMatcher {
 	} 
 
 	private String validateMobileNum(String number) {
-		String regex = "^([0-9]{1,5}[ ][0-9]{1,10})$";
+		String regex = "^([0-9]{2}?[ ][0-9]{4,13})$";
   	  Pattern pattern = Pattern.compile(regex);
   	  Matcher matcher = pattern.matcher(number);
   	  if(matcher.find()) {
