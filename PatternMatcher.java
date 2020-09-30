@@ -12,7 +12,21 @@ public class PatternMatcher {
 		System.out.println(lastname+"------->"+patternMatcher.validateInput(lastname));
 		String email = "abc.xyz@capg.co.in";
 		System.out.println(email+"------->"+patternMatcher.validateInput(email));
+		String Number = "91 1548846122";
+		System.out.println("EmailId of User:"+Number+"------->"+patternMatcher.validateMobileNum(Number));
 	
+	}
+
+	private String validateMobileNum(String number) {
+		String regex = "^([0-9]{1,5}[ ][0-9]{1,10})$";
+  	  Pattern pattern = Pattern.compile(regex);
+  	  Matcher matcher = pattern.matcher(number);
+  	  if(matcher.find()) {
+  		  return "valid";
+  		  
+  	  }
+  	  return "invalid";
+		
 	}
 
 	private String validateInput(String firstname) {
