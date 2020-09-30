@@ -8,7 +8,7 @@ public class PatternMatcher {
 		PatternMatcher patternMatcher = new PatternMatcher();
 		String samplel = "Isha";
 		System.out.println(samplel+"------->"+patternMatcher.validateInput(samplel));
-		String samplel1 = "shai";
+		String samplel1 = "Jounjalkar";
 		System.out.println(samplel1+"------->"+patternMatcher.validateInput(samplel1));
 	}
 
